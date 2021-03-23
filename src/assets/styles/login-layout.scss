@@ -1,0 +1,79 @@
+#container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: url('https://images4.alphacoders.com/602/thumb-1920-602788.png');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    .subContainer {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        border-radius: 5px;
+        // .loadIn {
+            // opacity: 1;
+            // top: 0;
+            // transition: 0.8s ease;
+        // }
+        .logoContainer {
+            width: 36%;
+            padding: 120px 35px;
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 2;
+            background: #d5d7db;
+            // transform: scale(0,0);
+            .logo {
+                width: 150px;
+                // margin-top: -20px;
+                // opacity: 0;
+            }
+            .text {
+                width: 150px;
+                padding: 25px 0 10px 0;
+                text-align: center;
+                color: #6B7FC5;
+                // margin-top: -70px;
+                // opacity: 0;
+            }
+            // &:before {
+            //     content: "";
+            //     background-size: cover !important;
+            //     position: absolute;
+            //     top: -50px;
+            //     left: -50px;
+            //     width: 150%;
+            //     height: 150%;
+            //     filter: blur(10px);
+            //     transform: scale(1);
+            //     box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.8);
+            // }
+        }
+        .formContainer {
+            width: 400px;
+            padding: 45px 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background: url('https://images4.alphacoders.com/602/thumb-1920-602788.png') center fixed;
+            background-size: cover !important;
+            box-shadow: inset 0 0 0 3000px rgba(40, 43, 48, 0.75);
+            // &:before {
+            //     content: "";
+            //     width: 150%;
+            //     background: url('https://i.pinimg.com/originals/c6/42/a2/c642a2c1c7ee1b80b9b1f01af87af6c5.jpg') center fixed;
+            //     background-size: cover !important;
+            //     box-shadow: inset 0 0 0 3000px rgba(40, 43, 48, 0.75);
+            //     filter: blur(10px);
+            // }
+        }
+    }
+}
