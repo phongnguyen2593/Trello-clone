@@ -27,7 +27,9 @@
             <div id="content">
                 <div class="main-content">
                     <div class="directory" v-for="(directory) in directories" :key="directory.id">
-                        <Directory :directory="directory" @reloadDirectories="getDataDirectory" />
+                        <draggable :directory="directories" item-key="id" :animation="108" @change="changeDirectory">
+                            <Directory :directory="directory" @reloadDirectories="getDataDirectory" />
+                        </draggable>
                     </div>
                     <div class="directory add-directory is-idle">
                         <span
@@ -67,11 +69,13 @@
 import api from '@/api'
 import { mapMutations, mapActions, mapState } from 'vuex'
 import Directory from '@/components/Directory'
+import draggable from 'vuedraggable'
 
 export default {
     name: 'Home',
     components: {
         Directory,
+        draggable
     },
     data() {
         return {
@@ -116,7 +120,20 @@ export default {
         },
         redirectProfile() {
             this.$router.push({ path: '/user' })
-        }
+        },
+        changeDirectory(e){
+            let newIndex = e.moved.newIndex
+            let directoryId = e.moved.element.id
+            let data = {
+                'index': newIndex
+            }
+            api.changeIndexDirectory(data, directoryId).then((response) => {
+                if (response) {
+                    this.getDirectories();
+                }
+            })
+            
+        },
     },
     mounted() {
         this.getDataDirectory()

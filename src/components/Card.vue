@@ -27,14 +27,6 @@
                     {{ fomatDateCard(card.deadline) }}
                 </el-button>
             </div>
-
-            <!-- <el-dialog
-                v-if="centerDialogVisible"
-                :visible.sync="centerDialogVisible"
-                :modalAppendToBody="false">
-                <span>{{ card.title }}</span>
-                
-            </el-dialog> -->
         </div>
     </div>
 </template>
@@ -48,6 +40,7 @@ export default {
     methods: {
         emitCardDetail() {
             let cardDetail = this.card
+            console.log(this.card);
             this.$emit('emitCardDetail', cardDetail)
         },
         fomatDateCard(date) {

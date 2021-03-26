@@ -36,6 +36,7 @@ apiAxios.interceptors.response.use(undefined, (error) => {
 })
 
 export default {
+    //AUTH
     getAuthUser () {
         return apiAxios({
             method: 'get',
@@ -56,6 +57,8 @@ export default {
             data: data
         })
     },
+
+    //DIRECTORY
     getDirectories() {
         return apiAxios({
             method: 'get',
@@ -69,12 +72,29 @@ export default {
             data: data,
         })
     },
+    
+    updateDirectory(data, id) {
+        return apiAxios({
+            method: 'put',
+            url: '/directories/' + id,
+            data: data,
+        })
+    },
     destroyDirectory(id) {
         return apiAxios({
             method: 'delete',
             url: '/directories/' + id
         })
     },
+    changeIndexDirectory(data, id){
+        return apiAxios({
+            method: 'put',
+            url: '/directories/' + id + '/index',
+            data: data,
+        })
+    },
+
+    //CARD
     getCardDetail(id) {
         return apiAxios({
             method: 'get',
@@ -122,6 +142,59 @@ export default {
             data: data
         })
     },
+
+    //CHECKLIST
+    storeChecklist(data) {
+        return apiAxios({
+            method: 'post',
+            url: '/check-lists',
+            data: data
+        })
+    },
+    deleteChecklist(id) {
+        return apiAxios({
+            method: 'delete',
+            url: '/check-lists/' + id,
+        })
+    },
+    storeChecklistChild(data) {
+        return apiAxios({
+            method: 'post',
+            url: '/check-list-childs',
+            data: data
+        })
+    },
+    updateStatusChecklistChild(id, status) {
+        return apiAxios({
+            method: 'put',
+            url: '/check-list-childs/' + id + '/change-status',
+            status: status
+        })
+    },
+    destroyChecklistChid(id){
+        return apiAxios({
+            method: 'delete',
+            url: '/check-list-childs/' + id
+        })
+    },
+
+    //FILE
+    uploadFileForCard(data, id){
+        return apiAxios({
+            method: 'post',
+            url: '/cards/'+ id +'/upload-file',
+            data: data,
+        })
+    },
+    updateFile(data, id){
+        return apiAxios({
+            method: 'put',
+            url: '/files/'+ id,
+            data: data,
+        })
+    },
+    
+    // USER
     changePassword(data) {
         return apiAxios({
             method: 'put',

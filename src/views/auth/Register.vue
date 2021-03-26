@@ -42,7 +42,7 @@
 
 <script>
 import api from '@/api'
-import {mapState, mapMutations} from 'vuex'
+import {mapState} from 'vuex'
 
 export default {
     name: "Register",
@@ -82,7 +82,6 @@ export default {
         }
     },
     methods: {
-        ...mapMutations('login', ['updateLoginStatus']),
         handleRegister(formName) {
             this.$refs[formName].validate((valid) => {
                 if (valid) {
